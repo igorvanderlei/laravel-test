@@ -22,12 +22,11 @@ trait CreatesApplication
 
     public function setUp(): void {
       parent::setUp();
-      \Artisan::call('migrate:fresh');
+      \Artisan::call('migrate:refresh');
       \Artisan::call('db:seed');
    }
 
    public function tearDown(): void {
-      \Artisan::call('migrate:rollback');
       parent::tearDown();
    }
 

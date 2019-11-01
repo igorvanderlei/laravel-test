@@ -10,6 +10,10 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    public function departamento() {
+	return $this->belongsTo("\App\Departamento");
+    }
+
     /**
      * The attributes that are mass assignable.
      *
