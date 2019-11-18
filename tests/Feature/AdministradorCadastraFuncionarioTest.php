@@ -15,8 +15,8 @@ class AdministradorCadastraFuncionarioTest extends TestCase
      */
     public function testUsuarioNaoLogado()
     {
-        $response = $this		
-		->get('funcionario.create')       
+        $response = $this
+		->get('funcionario.create')
 		->assertStatus(403);
     }
 
@@ -81,9 +81,13 @@ class AdministradorCadastraFuncionarioTest extends TestCase
 	$funcionario = factory(\App\Funcionario::class)
 				->make();
 
+	$dados = $funcionario->toArray();
+	$dados['password'] = 'password';
+	$dados['password_confirmation'] = 'password';
+
 	 $response = $this
 			->actingAs($usuario)
-			->post('funcionario.create', $funcionario->toArray())
+			->post('funcionario.create', $dados)
 			->assertStatus(200)
 			->assertSee('Funcionario criado');
     }

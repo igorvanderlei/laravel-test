@@ -36,6 +36,7 @@ $factory->define(\App\Funcionario::class, function (Faker $faker) {
     return [
         'nome' => $faker->name,
 	'departamento_id' => $faker->numberBetween(1,3),
+        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
     ];
 });
 

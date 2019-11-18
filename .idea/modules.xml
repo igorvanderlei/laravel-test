@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../academia/.idea/academia.iml" filepath="$PROJECT_DIR$/../academia/.idea/academia.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../belapp/.idea/belapp.iml" filepath="$PROJECT_DIR$/../belapp/.idea/belapp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../extravestibular/.idea/extravestibular.iml" filepath="$PROJECT_DIR$/../extravestibular/.idea/extravestibular.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../guidapp/.idea/guidapp.iml" filepath="$PROJECT_DIR$/../guidapp/.idea/guidapp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/laravel-test.iml" filepath="$PROJECT_DIR$/.idea/laravel-test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../saeem/.idea/saeem.iml" filepath="$PROJECT_DIR$/../saeem/.idea/saeem.iml" />
+    </modules>
+  </component>
+</project>

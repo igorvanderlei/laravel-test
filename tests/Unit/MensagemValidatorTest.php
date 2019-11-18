@@ -39,19 +39,21 @@ class MensagemValidatorTest extends TestCase
 	$this->expectException(\App\Validator\ValidationException::class);
         $mensagem = factory(\App\Mensagem::class)->make();
 	$mensagem->titulo = "";
-	
-	\App\Validator\MensagemValidator::validate($mensagem->toArray());
+	$dados = $mensagem->toArray();
+
+	\App\Validator\MensagemValidator::validate($dados);
     }
 
     public function testMensagemRemetenteIgualDestinatario()
     {
 	$this->expectException(\App\Validator\ValidationException::class);
         $mensagem = factory(\App\Mensagem::class)->make();
-	$mensagem->destinatario_id = $mensagem->funcionario_id;
 
+	$mensagem->destinatario_id = $mensagem->funcionario_id;
+	$dados = $mensagem->toArray();
 
 	//$mensagem->destinatario()->associate($mensagem->remetente);
-	
-	\App\Validator\MensagemValidator::validate($mensagem->toArray());
+
+	\App\Validator\MensagemValidator::validate($dados);
     }
 }

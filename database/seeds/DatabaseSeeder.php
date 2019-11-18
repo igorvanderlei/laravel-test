@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     {
 
         $this->call(DepartamentoSeeder::class);
-	$this->call(FuncionarioSeeder::class);
-	$this->call(MensagemSeeder::class);	
+	    $this->call(FuncionarioSeeder::class);
+	    $this->call(MensagemSeeder::class);
     }
 }

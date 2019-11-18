@@ -18,6 +18,8 @@ class CreateFuncionariosTable extends Migration
 	    $table->string('nome');
 	    $table->bigInteger('departamento_id')->unsigned();
             $table->timestamps();
+            $table->string('password');
+            $table->rememberToken();
 
 	    $table->foreign('departamento_id')->references('id')->on('departamentos');
         });

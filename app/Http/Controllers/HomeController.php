@@ -21,8 +21,15 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index($caixa = "inbox")
     {
-        return view('home');
+        if($caixa=="sent") {
+            $mensagens = \Auth::user()->caixaSaida;
+        } else {
+            $mensagens = \Auth::user()->caixaEntrada;
+        }
+
+
+        return view('home')->with(["mensagens"=> $mensagens, "caixa" => $caixa]);
     }
 }

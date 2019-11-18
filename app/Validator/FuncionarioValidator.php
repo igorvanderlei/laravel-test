@@ -8,6 +8,7 @@ class FuncionarioValidator
 		$validator = \Validator::make($data, \App\Funcionario::$rules, \App\Funcionario::$messages);
 		if(!$validator->errors()->isEmpty())
 			throw new ValidationException($validator, "Erro na validação do Funcionario");
-		
+		return $validator;
+
 	}
 }

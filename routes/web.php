@@ -20,7 +20,7 @@ Route::get('/hello', function () {
 })->middleware("auth")
 ;
 
-Route::get("funcionario.create", "CadastrarFuncionarioController@prepararCadastro");
+Route::get("funcionario.create", "CadastrarFuncionarioController@prepararCadastro")->name("funcionario.create");
 
 
 Route::get('departamento.create', function() {
@@ -35,14 +35,17 @@ Route::post("funcionario.create", "CadastrarFuncionarioController@cadastrar");
 Route::post('departamento.create', "CadastrarDepartamentoController@cadastrar");
 
 
-Auth::routes();
+Route::get('/home/{caixa?}', 'HomeController@index')->name('home');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/login', "Auth\LoginController@loginForm")->name('login');
+Route::get('/logout', "Auth\LoginController@logout")->name('logout');
+Route::post('/logout', "Auth\LoginController@logout");
+Route::post('/login', "Auth\LoginController@login");
 
-Auth::routes();
+Route::get("/escrever", "EnviarMensagemController@showForm")->name('mensagem.create');
+Route::post("/enviar", "EnviarMensagemController@enviar")->name('mensagem.send');
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get("/locale/{lang?}", function($lang='pt_BR') {
+    \Session::put('locale', $lang);
+    return redirect()->back();
+});

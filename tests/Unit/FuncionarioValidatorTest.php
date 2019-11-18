@@ -14,7 +14,7 @@ class FuncionarioValidatorTest extends TestCase
 	$this->expectException(\App\Validator\ValidationException::class);
         $funcionario = factory(\App\Funcionario::class)->make();
 	$funcionario->nome = "";
-	
+
 	\App\Validator\FuncionarioValidator::validate($funcionario->toArray());
 
 
@@ -25,7 +25,7 @@ class FuncionarioValidatorTest extends TestCase
 	$this->expectException(\App\Validator\ValidationException::class);
         $funcionario = factory(\App\Funcionario::class)->make();
 	$funcionario->departamento_id = "";
-	
+
 	\App\Validator\FuncionarioValidator::validate($funcionario->toArray());
 
 
@@ -34,10 +34,11 @@ class FuncionarioValidatorTest extends TestCase
     public function testFuncionarioCorreto()
     {
         $funcionario = factory(\App\Funcionario::class)->make();
-
-\App\Validator\FuncionarioValidator::validate($funcionario->toArray());
-
-	$this->assertTrue(true);
+        $dados = $funcionario->toArray();
+        $dados['password'] = 'password';
+        $dados['password_confirmation'] = 'password';
+        $validator = \App\Validator\FuncionarioValidator::validate($dados);
+        $this->assertTrue(true);
     }
 
 
